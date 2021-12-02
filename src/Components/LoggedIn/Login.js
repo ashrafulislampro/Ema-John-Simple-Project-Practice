@@ -76,7 +76,7 @@ function Login() {
       setUser(newUserInfo);
     }
   }
-console.log(user);
+
   const handleSubmit = (e) => {
     if (newUser && user.email && user.password) {
       const auth = getAuth(app);
