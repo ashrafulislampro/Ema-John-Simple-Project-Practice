@@ -8,18 +8,22 @@ import './Shop.css';
 const Shop = () => {
    const [products, setProducts] = useState([]);
    const [cart, setCart] = useState([]);
-
+   const [searchProduct, setSearchProduct] = useState('');
    useEffect(() => {
-      fetch('https://fierce-fjord-93511.herokuapp.com/products')
+      fetch('https://fierce-fjord-93511.herokuapp.com/products?search='+searchProduct)
          .then(res => res.json())
          .then(data => setProducts(data));
-   }, [])
+   }, [searchProduct]);
 
+   const handleBlur = (event) => {
+      setSearchProduct(event.target.value);
+   }
+   // https://fierce-fjord-93511.herokuapp.com
    useEffect(() => {
       const savedCart = getDatabaseCart();
       const productKey = Object.keys(savedCart);
      
-      fetch('https://fierce-fjord-93511.herokuapp.com/productsByKeys', {
+      fetch('/productsByKeys', {
              method : "POST",
              headers : {"Content-Type": "application/json"},
              body : JSON.stringify(productKey)
@@ -28,7 +32,7 @@ const Shop = () => {
           .then(data => setCart(data))
    }, []);
 
-
+ 
    const handleAddProduct = (product) => {
       const toBeAddedKey = product.key;
       const sameProduct = cart.find(pd => pd.key === toBeAddedKey);
@@ -49,7 +53,9 @@ const Shop = () => {
    }
    return (
       <div className="twin_container">
+         
          <div className="products_container">
+         <input type="text" placeholder="Search Product" onBlur={handleBlur}/>
             {
                products.map(pd => <Product
                   product={pd}

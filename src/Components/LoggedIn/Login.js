@@ -50,10 +50,21 @@ function Login() {
       };
       setUser(isSignedIn);
       setLoggedInUser(isSignedIn);
+      storeAuthToken();
       history.replace(from);
     });
   };
 
+
+  const storeAuthToken = () => {
+    const auth = getAuth(app);
+    auth.currentUser.getIdToken(/* forceRefresh */ true)
+    .then(function(idToken) {
+      sessionStorage.setItem('token', idToken)
+    }).catch(function(error) {
+      // Handle error
+    });
+  }
   const handleSignOut = () => {
     const auth = getAuth(app);
     signOut(auth)

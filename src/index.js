@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+export const secretId = `sk_test_51K5kEtAdRZ9BdaicEnjpoQUpcKicRg7lyz6HHXqrWjJZiLq2GLNgMRfi4auyLqTXcxza8E594vR0WEGsfk4v9bSX00fCurSbOe`;
 ReactDOM.render(
   <React.StrictMode>
     <App />
