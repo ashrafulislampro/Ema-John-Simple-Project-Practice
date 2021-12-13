@@ -18,12 +18,12 @@ const Shop = () => {
    const handleBlur = (event) => {
       setSearchProduct(event.target.value);
    }
-   // https://fierce-fjord-93511.herokuapp.com
+   
    useEffect(() => {
       const savedCart = getDatabaseCart();
       const productKey = Object.keys(savedCart);
      
-      fetch('/productsByKeys', {
+      fetch('https://fierce-fjord-93511.herokuapp.com/productsByKeys', {
              method : "POST",
              headers : {"Content-Type": "application/json"},
              body : JSON.stringify(productKey)
