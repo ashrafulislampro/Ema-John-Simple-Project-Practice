@@ -43,7 +43,7 @@ const SimpleCardForm = ({handlePayment}) => {
         paymentError && <p style={{ color: "red" }}>{paymentError}</p>
       }
       {
-        paymentSuccess && <p style={{ color: "green" }}>Your payment was successful</p> 
+        paymentSuccess && <p style={{ color: "green", textAlign: "center", fontSize: "3rem", fontWeight: "bold" }}>Your payment was successful</p> 
       }
     </div>
   );

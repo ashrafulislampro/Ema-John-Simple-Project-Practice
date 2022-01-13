@@ -4,6 +4,7 @@ import Cart from '../Cart/Cart';
 import ReviewItems from './ReviewItems';
 import happyImage from '../../images/giphy.gif'
 import { useHistory } from 'react-router';
+import fakeData from '../Shop/fakeData';
 
 const Review = () => {
           const [cart , setCart] = useState([]);
@@ -23,14 +24,20 @@ useEffect(() => {
           // cart
           const savedCart = getDatabaseCart();
           const productKey = Object.keys(savedCart);
-
-          fetch('https://fierce-fjord-93511.herokuapp.com/productsByKeys', {
-             method : "POST",
-             headers : {"Content-Type": "application/json"},
-             body : JSON.stringify(productKey)
-          })
-          .then(res => res.json())
-          .then(data => setCart(data))
+          const cartProducts = productKey.map(existingKey =>{
+            const product = fakeData.find(pd => pd.key === existingKey)
+            product.quantity = savedCart[existingKey];
+           
+            return product;
+        })
+        setCart(cartProducts);
+         //  fetch('https://fierce-fjord-93511.herokuapp.com/productsByKeys', {
+         //     method : "POST",
+         //     headers : {"Content-Type": "application/json"},
+         //     body : JSON.stringify(productKey)
+         //  })
+         //  .then(res => res.json())
+         //  .then(data => setCart(data))
 },[]);
 
 
