@@ -18,3 +18,13 @@ nav a{
 nav a:hover{
           background: gray;
 }
+nav .form_control{
+          width: 70%;
+          height: 40px;
+          border-top-left-radius: 10px;
+          border-bottom-left-radius: 10px;
+          padding-left: 15px;
+}
+.search_btn{
+          background-color: aquamarine !important;
+}

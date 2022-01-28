@@ -14,7 +14,12 @@ import { useContext, useState } from "react";
 import { useHistory, useLocation } from "react-router";
 import { UserContext } from "../../App";
 import firebaseConfig from "./firebaseConfig";
+import './Login.css';
+import fb from "../../images/Group 2.png";
+import google from "../../images/Group 573.png";
+import github from "../../images/github.png";
 const app = initializeApp(firebaseConfig);
+
 
 function Login() {
   const [newUser, setNewUser] = useState(false);
@@ -190,14 +195,14 @@ function Login() {
   return (
     <div style={{ textAlign: "center" }}>
       {user.isSignedIn ? (
-        <button onClick={handleSignOut}>Sign Out</button>
+        <button className="signIn_button" onClick={handleSignOut}><img style={{ height: "30px", float: "left" }} src={google} alt="" /><span>Sign out</span></button>
       ) : (
-        <button onClick={handleGoogleSignIn}>Sign in</button>
+        <button className="signIn_button" onClick={handleGoogleSignIn}><img style={{ height: "30px", float: "left" }} src={google} alt="" /><span>Sign in</span></button>
       )}
       <br />
-      <button onClick={handleFacebook}>Sign in using Facebook</button>
+      <button className="signIn_button" onClick={handleFacebook}><img style={{ height: "30px", float: "left" }} src={fb} alt="" /><span>Sign in</span></button>
       <br />
-      <button onClick={handleGithubSignIn}>Sign in using Github</button>
+      <button className="signIn_button" onClick={handleGithubSignIn}><img style={{ height: "30px", float: "left" }} src={github} alt="" /><span>Sign in</span></button>
 
       {user.isSignedIn && (
         <div>
@@ -221,6 +226,7 @@ function Login() {
           <input
             type="text"
             name="name"
+            className="form_input"
             onBlur={handleBlur}
             placeholder="Your name"
             required
@@ -230,6 +236,7 @@ function Login() {
         <input
           type="text"
           name="email"
+          className="form_input"
           onBlur={handleBlur}
           placeholder="Your email"
           required
@@ -238,6 +245,7 @@ function Login() {
         <input
           type="password"
           name="password"
+          className="form_input"
           onBlur={handleBlur}
           placeholder="Your password"
           required

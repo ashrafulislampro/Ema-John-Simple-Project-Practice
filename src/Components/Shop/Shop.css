@@ -7,3 +7,79 @@
           margin-right: 5px;
           border-right: 1px solid lightgrey;
 }
+.row-content{
+          display: flex;
+          flex-direction: row !important;
+}
+@media screen and (min-width: 780px) {
+          .row-content{
+                    display: flex;
+                    /* flex-direction: column-reverse; */
+          }
+}
+@media screen and (min-width: 780px) {
+          .row-content{
+                    display: flex;
+                    /* flex-direction: column-reverse; */
+          }
+}
+@media screen and (min-width: 780px) {
+          .row-content{
+                    display: flex;
+                    flex-direction: column-reverse;
+          }
+          .cart_container{
+                    display: flex;
+                    justify-content: center;
+          }
+          .product_img{
+                    width: 210px;
+          }
+          .main-btn{
+                    width: 170px !important;
+          }
+          .product-name{
+                    font-size: 24px !important;
+                    word-wrap: break-word;
+
+          }
+          .logo{
+                    width: 400px !important;
+          }
+          .products_container{
+                    width: 100%;
+                    margin: 0;
+                    padding-top: 40px;
+                    border-right: 1px solid lightgrey;
+          }
+}
+@media screen and (min-width: 375px) {
+          .row-content{
+                    display: flex;
+                    flex-direction: column-reverse;
+          }
+          .cart_container{
+                    display: flex;
+                    justify-content: center;
+          }
+          .product_img{
+                    width: 175px;
+          }
+          .main-btn{
+                    width: 150px !important;
+          }
+          .product-name{
+                    font-size: 20px;
+                    word-wrap: break-word;
+
+          }
+          .logo{
+                    width: 325px !important;
+          }
+          .products_container{
+                    width: 100%;
+                    margin: 0;
+                    padding-top: 30px;
+                    border-right: 1px solid lightgrey;
+          }
+}

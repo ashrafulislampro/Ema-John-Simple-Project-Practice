@@ -75,7 +75,7 @@ const Shipment = () => {
         </form>
       </div>
       <div style={{display : shipmentData ? "block" : "none"}} className="col-md-6">
-        <h1>Please pay for me</h1>
+        <h1 className="mt-5">Pay With Card</h1>
         <ProcessPayment handlePayment={handlePaymentSuccess}></ProcessPayment>
       </div>
     </div>

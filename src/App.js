@@ -18,11 +18,24 @@ export const UserContext = createContext();
 
 function App() { 
   const [loggedInUser, setLoggedInUser] = useState({});
- 
+  const [search, setSearch] = useState('');
+  
+  const handleSubmit = e => {
+    e.preventDefault();
+    toggleSpinner(); 
+    const products = document.getElementById('product').value;
+    setSearch(products);
+    document.getElementById('product').value= '';
+};
+const toggleSpinner = () => {
+  const spinner = document.getElementById('spinner_buffer');
+  spinner.classList.toggle("d-none");
+}
+
   return (
-    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser], [search, setSearch]}>
     <Router>
-     <Header></Header>
+     <Header handleSubmit={handleSubmit}></Header>
      <Switch>
        <Route path="/shop">
         <Shop/>
