@@ -50,25 +50,28 @@ const Review = () => {
   };
   return (
     <div className="container-fluid twin_container">
-    <div className="row">
-      <div className="col-sm-12 col-md-12 col-lg-9 products_container">
-        {cart.map((pd) => (
-          <ReviewItems
-            removedProduct={removedProduct}
-            product={pd}
-            key={pd.key}
-          ></ReviewItems>
-        ))}
-        {thankedYou}
+      <div className="row">
+        <div className="col-sm-12 col-md-12 col-lg-9">
+          <div className="products_container">
+            {cart.map((pd) => (
+              <ReviewItems
+                removedProduct={removedProduct}
+                product={pd}
+                key={pd.key}
+              ></ReviewItems>
+            ))}
+          </div>
+        </div>
+        <div className="col-sm-12 col-md-12 col-lg-2">
+          <div className="cart_container">
+            <Cart cart={cart}>
+              <button onClick={handleProceedCheckOut} className="main-btn">
+                Proceed CheckOut
+              </button>
+            </Cart>
+          </div>
+        </div>
       </div>
-      <div className="col-sm-12 col-md-12 col-lg-3 cart_container">
-        <Cart cart={cart}>
-          <button onClick={handleProceedCheckOut} className="main-btn">
-            Proceed CheckOut
-          </button>
-        </Cart>
-      </div>
-    </div>
     </div>
   );
 };

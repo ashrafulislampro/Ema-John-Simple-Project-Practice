@@ -68,17 +68,17 @@ const Shop = () => {
   return (
     <div className="container-fluid twin_container">
       <div className="row row-content">
-      
-        <div className="col-sm-12 col-md-12 col-lg-9 products_container">
-          <div
-            id="spinner_buffer"
-            className="d-done d-flex justify-content-center mt-5"
-          >
-            <div className="spinner-border text-warning" role="status">
-              <span className="visually-hidden">Loading...</span>
+        <div className="col-sm-12 col-md-12 col-lg-9">
+          <div className="products_container">
+            <div
+              id="spinner_buffer"
+              className="d-done d-flex justify-content-center mt-5"
+            >
+              <div className="spinner-border text-warning" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </div>
             </div>
-          </div>
-          
+
             {products.map((pd) => (
               <Product
                 product={pd}
@@ -87,8 +87,10 @@ const Shop = () => {
                 handleAddProduct={handleAddProduct}
               ></Product>
             ))}
+          </div>
         </div>
-          <div className="col-sm-12 col-md-12 col-lg-2 cart_container">
+        <div className="col-sm-12 col-md-12 col-lg-2">
+          <div className="cart_container">
             <Cart cart={cart}>
               <Link to="/review">
                 <button className="main-btn">Review Order</button>
@@ -97,6 +99,7 @@ const Shop = () => {
           </div>
         </div>
       </div>
+    </div>
   );
 };
 
