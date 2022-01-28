@@ -8,19 +8,13 @@
           border-right: 1px solid lightgrey;
 }
 .row-content{
-          display: flex;
+          display: flex !important;
           flex-direction: row !important;
 }
-@media screen and (min-width: 780px) {
+@media screen and (min-width: 1300px) {
           .row-content{
                     display: flex;
-                    /* flex-direction: column-reverse; */
-          }
-}
-@media screen and (min-width: 780px) {
-          .row-content{
-                    display: flex;
-                    /* flex-direction: column-reverse; */
+                    flex-direction: row;
           }
 }
 @media screen and (min-width: 780px) {
